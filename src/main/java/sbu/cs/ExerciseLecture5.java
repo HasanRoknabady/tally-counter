@@ -16,7 +16,7 @@ public class ExerciseLecture5 {
      *   given length and at least 1 digit and 1 special character
      *   lecture 5 page 14
      */
-    public String StrongPassword(int length) {
+    public String strongPassword(int length) throws Exception {
         return null;
     }
 

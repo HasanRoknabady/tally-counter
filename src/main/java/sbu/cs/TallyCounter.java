@@ -13,7 +13,7 @@ public class TallyCounter implements TallyCounterInterface {
     }
 
     @Override
-    public void setValue(int value) {
+    public void setValue(int value) throws IllegalValueException {
 
     }
 }

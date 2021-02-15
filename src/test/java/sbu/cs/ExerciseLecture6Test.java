@@ -19,31 +19,32 @@ class ExerciseLecture6Test {
 
     @Test
     void calculateEvenSumOdd() {
-        assertEquals(el6.calculateEvenSum(new int[]{1, -2, 3, 4, 5}), 9);
+        assertEquals(9, el6.calculateEvenSum(new int[]{1, -2, 3, 4, 5}));
     }
 
     @Test
     void calculateEvenSumEven() {
-        assertEquals(el6.calculateEvenSum(new int[]{4, 3, -2, -2}), 2);
+        assertEquals(2, el6.calculateEvenSum(new int[]{4, 3, -2, -2}));
     }
 
     @Test
     void calculateEvenSumBig() {
-        assertEquals(el6.calculateEvenSum(
-                new int[]{Integer.MAX_VALUE, 3, Integer.MAX_VALUE, -2}),
-                (long) Integer.MAX_VALUE * 2);
+        assertEquals(
+                (long) Integer.MAX_VALUE * 2,
+                el6.calculateEvenSum(new int[]{Integer.MAX_VALUE, 3, Integer.MAX_VALUE, -2})
+        );
     }
 
     @Test
     void reverseArray() {
         assertArrayEquals(
-                el6.reverseArray(new int[]{1, 2, 3, 4}),
-                new int[]{4, 3, 2, 1}
-                );
+                new int[]{4, 3, 2, 1},
+                el6.reverseArray(new int[]{1, 2, 3, 4})
+        );
     }
 
     @Test
-    void matrixProduct() {
+    void matrixProduct() throws RuntimeException {
         double[][] m1 = new double[1][2];
         double[][] m2 = new double[2][1];
         m1[0][0] = 1.5;
@@ -51,8 +52,8 @@ class ExerciseLecture6Test {
         m2[0][0] = -1;
         m2[1][0] = 1.5;
         double[][] output = el6.matrixProduct(m1, m2);
-        assertEquals(output.length, 1);
-        assertEquals(output[0][0], 1.5);
+        assertEquals(1, output.length);
+        assertEquals(1.5, output[0][0]);
     }
 
     @Test
@@ -71,7 +72,7 @@ class ExerciseLecture6Test {
         List<List<String>> output = el6.arrayToList(sample);
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 3; j++) {
-                assertEquals(output.get(i).get(j), sample[i][j]);
+                assertEquals(sample[i][j], output.get(i).get(j));
             }
         }
     }
@@ -79,33 +80,33 @@ class ExerciseLecture6Test {
     @Test
     void primeFactorsOne() {
         List<Integer> output = el6.primeFactors(1);
-        assertEquals(output.size(), 0);
+        assertEquals(0, output.size());
     }
 
     @Test
     void primeFactorsPrime() {
         List<Integer> output = el6.primeFactors(13);
-        assertEquals(output.size(), 1);
-        assertEquals(output.get(0), 13);
+        assertEquals(1, output.size());
+        assertEquals(13, output.get(0));
     }
 
     @Test
     void primeFactorsSample() {
         List<Integer> output = el6.primeFactors(120);
-        assertEquals(output.size(), 3);
-        assertEquals(output.get(0), 2);
-        assertEquals(output.get(1), 3);
-        assertEquals(output.get(2), 5);
+        assertEquals(3, output.size());
+        assertEquals(2, output.get(0));
+        assertEquals(3, output.get(1));
+        assertEquals(5, output.get(2));
     }
 
     @Test
     void extractWord() {
         String line = "hi! how ,are you?";
         List<String> output = el6.extractWord(line);
-        assertEquals(output.size(), 4);
-        assertEquals(output.get(0), "hi");
-        assertEquals(output.get(1), "how");
-        assertEquals(output.get(2), "are");
-        assertEquals(output.get(3), "you");
+        assertEquals(4, output.size());
+        assertEquals("hi", output.get(0));
+        assertEquals("how", output.get(1));
+        assertEquals("are", output.get(2));
+        assertEquals("you", output.get(3));
     }
 }

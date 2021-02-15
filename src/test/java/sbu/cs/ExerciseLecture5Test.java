@@ -19,29 +19,29 @@ class ExerciseLecture5Test {
     @ValueSource(ints = {1, 2, 5, 10, 20})
     void weakPassword(int len) {
         String output = el5.weakPassword(len);
-        assertEquals(output.length(), len);
+        assertEquals(len, output.length());
         assertTrue(output.matches("[a-z]*"));
     }
 
     @ParameterizedTest
     @ValueSource(ints = {5, 10, 20})
-    void strongPassword(int len) {
-        String output = el5.weakPassword(len);
-        assertEquals(output.length(), len);
+    void strongPassword(int len) throws Exception {
+        String output = el5.strongPassword(len);
+        assertEquals(len, output.length());
         assertTrue(checkStrongPass(output));
     }
 
     @RepeatedTest(value = 20, name = "{displayName} {currentRepetition}/{totalRepetitions}")
     @DisplayName("strongPasswordTest")
-    void strongPasswordRepeat(RepetitionInfo repInfo, TestInfo testInfo) {
-        String output = el5.weakPassword(3);
-        assertEquals(output.length(), 3);
+    void strongPasswordRepeat(RepetitionInfo repInfo, TestInfo testInfo) throws Exception {
+        String output = el5.strongPassword(3);
+        assertEquals(3, output.length());
         assertTrue(checkStrongPass(output));
     }
 
     @Test
     void strongPasswordBadLength() {
-        assertThrows(Exception.class, () -> el5.StrongPassword(2));
+        assertThrows(Exception.class, () -> el5.strongPassword(2));
     }
 
     boolean checkStrongPass(String password) {
@@ -66,6 +66,6 @@ class ExerciseLecture5Test {
 
     @Test
     void isFiboBinFalse() {
-        assertFalse(el5.isFiboBin(4));
+        assertFalse(el5.isFiboBin(3));
     }
 }

@@ -30,7 +30,7 @@ public class ExerciseLecture4 {
     /*
      *   implement a function that returns true if the given line is
      *   palindrome and false if it is not palindrome.
-     *   palindrome is like wow, never odd or even
+     *   palindrome is like 'wow', 'never odd or even', 'Wow'
      *   lecture 4 page 19
      */
     public boolean isPalindrome(String line) {

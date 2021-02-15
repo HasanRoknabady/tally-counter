@@ -16,60 +16,60 @@ class ExerciseLecture4Test {
 
     @Test
     void factorialSimple1() {
-        assertEquals(el4.factorial(5), 120);
+        assertEquals(120, el4.factorial(5));
     }
 
     @Test
     void factorialSimple2() {
-        assertEquals(el4.factorial(1), 1);
+        assertEquals(1, el4.factorial(1));
     }
 
     @Test
     void factorialOfZero() {
-        assertEquals(el4.factorial(0), 1);
+        assertEquals(1, el4.factorial(0));
     }
 
     @Test
     void fibonacciSample1() {
-        assertEquals(el4.fibonacci(5), 5);
+        assertEquals(5, el4.fibonacci(5));
     }
 
     @Test
     void fibonacciSample2() {
-        assertEquals(el4.fibonacci(1), 1);
+        assertEquals(1, el4.fibonacci(1));
     }
 
     @Test
     void fibonacciSample3() {
-        assertEquals(el4.fibonacci(2), 1);
+        assertEquals(1, el4.fibonacci(2));
     }
 
     @Test
     void fibonacciBigIndex() {
         // It's actually a prime number
-        assertEquals(el4.fibonacci(47), 2971215073L);
+        assertEquals(2971215073L, el4.fibonacci(47));
     }
 
     @Test
     void reverseSample1() {
-        assertEquals(el4.reverse("hello"), "olleh");
+        assertEquals("olleh", el4.reverse("hello"));
     }
 
     @Test
     void reverseSample2() {
-        assertEquals(el4.reverse("wow"), "wow");
+        assertEquals("wow", el4.reverse("wow"));
     }
 
     @Test
     void reverseCaseImportant() {
-        assertEquals(el4.reverse("alI"), "Ila");
+        assertEquals("Ila", el4.reverse("alI"));
     }
 
     @Test
     void reverseWithSpace() {
         assertEquals(
-                el4.reverse("never odd or even"),
-                "neve ro ddo reven");
+                "neve ro ddo reven",
+                el4.reverse("never odd or even"));
     }
 
     @Test
@@ -109,7 +109,7 @@ class ExerciseLecture4Test {
         answer[2][3] = '*';
         answer[3][2] = '*';
         for (int i = 0; i < 5; i++) {
-            assertArrayEquals(output[i], answer[i]);
+            assertArrayEquals(answer[i], output[i]);
         }
     }
 
@@ -119,7 +119,7 @@ class ExerciseLecture4Test {
         char[][] output = el4.dotPlot("hi", "help");
         answer[0][0] = '*';
         for (int i = 0; i < 2; i++) {
-            assertArrayEquals(output[i], answer[i]);
+            assertArrayEquals(answer[i], output[i]);
         }
     }
 

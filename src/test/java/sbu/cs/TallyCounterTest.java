@@ -10,7 +10,7 @@ class TallyCounterTest {
     TallyCounter tallyCounter;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws IllegalValueException {
         this.tallyCounter = new TallyCounter();
         this.tallyCounter.setValue(0);
     }

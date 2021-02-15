@@ -26,7 +26,7 @@ public class ExerciseLecture6 {
      *   implement a function that calculate product of two 2-dim matrices
      *   lecture 6 page 21
      */
-    public double[][] matrixProduct(double[][] m1, double[][] m2) {
+    public double[][] matrixProduct(double[][] m1, double[][] m2) throws RuntimeException {
         return null;
     }
 
