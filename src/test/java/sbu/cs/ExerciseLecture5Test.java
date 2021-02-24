@@ -66,6 +66,6 @@ class ExerciseLecture5Test {
 
     @Test
     void isFiboBinFalse() {
-        assertFalse(el5.isFiboBin(3));
+        assertFalse(el5.isFiboBin(4));
     }
 }
