@@ -18,12 +18,12 @@ public class ExerciseLecture6
      */
     public long calculateEvenSum(int[] arr)
     {
-        long sum = 0;
+        long sum1 = 0;
         for (int i = 0; i < arr.length; i += 2)
         {
-            sum += arr[i];
+            sum1 += arr[i];
         }
-        return sum;
+        return sum1;
     }
 
     /*
