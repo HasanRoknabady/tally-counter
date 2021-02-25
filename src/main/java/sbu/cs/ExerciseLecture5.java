@@ -24,10 +24,10 @@ public class ExerciseLecture5 {
         // from the generated random String into the result
         for (int k = 0; k < randomString.length(); k++)
         {
-            char ch = randomString.charAt(k);
-            if ( (ch >= 'a' && ch <= 'z') && (length > 0) )
+            char ch1 = randomString.charAt(k);
+            if ( (ch1 >= 'a' && ch1 <= 'z') && (length > 0) )
             {
-                r.append(ch);
+                r.append(ch1);
                 length--;
             }
         }
