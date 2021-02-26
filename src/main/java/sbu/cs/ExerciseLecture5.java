@@ -36,6 +36,42 @@ public class ExerciseLecture5 {
     /*
     public String strongPassword(int length) throws Exception
     {
+
+    }
+     if(length < 3)
+        {
+            throw new
+                    IllegalValueException();
+        }
+        Random random = new Random();
+        String specialsChar = "+_()@#$%^&*~!";
+        StringBuilder builder = new StringBuilder();
+        int randInt = 0, i = 0;
+        while (i < length)
+        {
+            if (i % 3 == 2)
+            {
+                randInt = random.nextInt(26) + 97;
+                builder.append((char) randInt);
+            }
+            if (i % 3 == 1)
+            {
+                randInt = random.nextInt(13);
+                builder.append(specialsChar.charAt(randInt % 10));
+            }
+            if (i % 3 == 0)
+            {
+                randInt = random.nextInt(13);
+                builder.append(specialsChar.charAt(randInt % 13));
+            }
+
+        }
+        return builder.toString();
+        i++;
+    ////////////////////////////////////////////////////////////////
+     */
+    public String strongPassword(int length) throws
+    Exception {
         if(length < 3)
         {
             throw new IllegalValueException();
@@ -59,40 +95,8 @@ public class ExerciseLecture5 {
             tempPassword.setCharAt(randomI,specialCharacters[randomSpecialCharacter]);
         }
         return tempPassword.toString();
-    }
-    ////////////////////////////////////////////////////////////////
-     */
-    public String strongPassword(int length) throws
-    Exception {
 
-        if(length < 3)
-        {
-            throw new
-                    RuntimeException();
-        }
-        Random random = new Random();
-        String specialsChar = "+_()@#$%^&*~!";
-        StringBuilder builder = new StringBuilder();
-        int randInt = 0, i = 0;
-        while (i < length)
-        {
-            if (i % 3 == 2)
-            {
-                randInt = random.nextInt(26) + 97;
-                builder.append((char) randInt);
-            }
-            if (i % 3 == 1)
-            {
-                randInt = random.nextInt(13);
-                builder.append(specialsChar.charAt(randInt % 10));
-            }
-            if (i % 3 == 0)
-            {
-                randInt = random.nextInt(13);
-                builder.append(specialsChar.charAt(randInt % 13));
-            }
-        }
-        return builder.toString();
+
     }
 
     /*
