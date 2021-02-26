@@ -125,8 +125,10 @@ class ExerciseLecture4Test {
 
     char[][] makeEmptyArray(int dim1, int dim2) {
         char[][] arr = new char[dim1][dim2];
-        for (int i = 0; i < dim1; i++) {
-            for (int j = 0; j < dim2; j++) {
+        for (int i = 0; i < dim1; i++)
+        {
+            for (int j = 0; j < dim2; j++)
+            {
                 arr[i][j] = ' ';
             }
         }
