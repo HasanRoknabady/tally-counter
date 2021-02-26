@@ -66,14 +66,12 @@ public class ExerciseLecture4 {
      */
     public boolean isPalindrome(String line)
     {
-        char tempStart = line.charAt(0);
-        char tempEnd = line.charAt(line.length() - 1);
-        if (Character.toLowerCase(tempEnd) == Character.toLowerCase(tempStart))
-        {
-            return true;
-        }
-        else
-            return false;
+        line = line.toLowerCase();
+        line = line.replaceAll("\\s+", "");
+        StringBuilder  checkOut = new StringBuilder(line);
+        checkOut.reverse();
+        boolean flag = line.equals(checkOut.toString());
+        return flag;
     }
 
     /*

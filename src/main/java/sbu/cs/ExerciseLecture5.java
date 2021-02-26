@@ -13,33 +13,54 @@ public class ExerciseLecture5 {
      */
     public String weakPassword(int length)
     {
-        byte[] array = new byte[256];
-        new Random().nextBytes(array);
-        String randomString = new String(array, Charset.forName("UTF-8"));
+        Random random = new Random();
+        int acsNum = 0, i = 0, numAlf = 26;
+        StringBuilder builder = new StringBuilder();
 
-        // Create a StringBuffer to store the result
-        StringBuffer r = new StringBuffer();
-
-        // Append first 20 alphanumeric characters
-        // from the generated random String into the result
-        for (int k = 0; k < randomString.length(); k++)
+        while (i < length)
         {
-            char ch1 = randomString.charAt(k);
-            if ( (ch1 >= 'a' && ch1 <= 'z') && (length > 0) )
-            {
-                r.append(ch1);
-                length--;
-            }
+            acsNum = random.nextInt(26) + 97;
+            builder.append((char) acsNum);
+            i++;
         }
-
-        // return the resultant string
-        return r.toString();
+        String outPutPass = builder.toString();
+        return outPutPass;
     }
 
     /*
      *   implement a function to create a random password with
      *   given length and at least 1 digit and 1 special character
      *   lecture 5 page 14
+     */
+    /////////////////////////////////////////////////////////////
+    /*
+    public String strongPassword(int length) throws Exception
+    {
+        if(length < 3)
+        {
+            throw new IllegalValueException();
+        }
+        Random rand = new Random();
+        StringBuilder tempPassword = new StringBuilder(weakPassword(length));
+        char[] digits = {'0','1','2','3','4','5','6','7','8','9'};
+        int quantityOfDigits = rand.nextInt(length) + 1;
+        for (int i = 0; i < quantityOfDigits; i++)
+        {
+            int randomI = rand.nextInt((length - 1) / 2);
+            int randomDigit = rand.nextInt(10);
+            tempPassword.setCharAt(randomI,digits[randomDigit]);
+        }
+        char[] specialCharacters = {'?','<','>','@','!','#','$','%','^','&','*','(',')','-','_','=','/','.','~','`'};
+        int quantityOfSpecialCharacters = rand.nextInt(length) + 1;
+        for (int i = 0; i < quantityOfSpecialCharacters; i++)
+        {
+            int randomI = rand.nextInt((length - 1) / 2) + (length - 1) / 2;
+            int randomSpecialCharacter = rand.nextInt(20);
+            tempPassword.setCharAt(randomI,specialCharacters[randomSpecialCharacter]);
+        }
+        return tempPassword.toString();
+    }
+    ////////////////////////////////////////////////////////////////
      */
     public String strongPassword(int length) throws
     Exception {
@@ -49,37 +70,29 @@ public class ExerciseLecture5 {
             throw new
                     RuntimeException();
         }
-
-        byte[] array = new byte[256];
-        new Random().nextBytes(array);
-        String randomString = new String(array, Charset.forName("UTF-8"));
-        // Create a StringBuffer to store the result
-        StringBuffer r = new StringBuffer();
-        Random rand = new Random();
-        //////////////////////////////////////////////////
-        int RAND_INT = rand.nextInt(10);
-        char Special_Character = '@';
-        char FIX = 'a';
-        //from the generated random String into the result
-        r.append(Special_Character);
-        r.append(RAND_INT);
-        r.append(FIX);
-        for (int i = 0; i < randomString.length(); i++)
+        Random random = new Random();
+        String specialsChar = "+_()@#$%^&*~!";
+        StringBuilder builder = new StringBuilder();
+        int randInt = 0, i = 0;
+        while (i < length)
         {
-            char ch3 = randomString.charAt(i);
-            if ( ((ch3 >= 'a' && ch3 <= 'z') || (ch3 >= 'A' && ch3 <= 'Z') ||
-                    (ch3 >= '0' && ch3 <= '9') )  && (length > 3) && (ch3 != '|') )
+            if (i % 3 == 2)
             {
-                r.append(ch3);
-                length--;
+                randInt = random.nextInt(26) + 97;
+                builder.append((char) randInt);
+            }
+            if (i % 3 == 1)
+            {
+                randInt = random.nextInt(13);
+                builder.append(specialsChar.charAt(randInt % 10));
+            }
+            if (i % 3 == 0)
+            {
+                randInt = random.nextInt(13);
+                builder.append(specialsChar.charAt(randInt % 13));
             }
         }
-        // return the resultant string
-        return r.toString();
-
-
-
-
+        return builder.toString();
     }
 
     /*
@@ -93,44 +106,56 @@ public class ExerciseLecture5 {
     public boolean isFiboBin(int n)
     {
         long fib1 = 1, fib2 = 1;
-        long temp = 0;
-        boolean test = true;
-        if (n == 1)
-        {
-            return true;
-        }
-          else
+        long temp = 0, temp2 = 0, garb = 0;
+        long bineryOfNum = 0;
+
+        boolean test = true, testIsFibobinOrNot = false;
+     // dedicate that n is a fibobin if is return true else return false
+            while (test)
             {
-               for (int i = 0; i <= 1000; i++)
+
+                //this for get fibnum
+                if (n > 2)
                 {
-                   temp = fib1;
-                   fib1 = fib2;
-                   fib2 = temp;
-                   fib2 = temp + fib1;
-
-                   if (fib2 == n)
-                   {
-                    return true;
-                   }
-                   if (fib2 != n && i == 1000)
-                   {
-                    test = false;
-                   }
+                    temp = fib2;
+                    fib2 = fib1;
+                    fib1 = temp;
+                    fib2 = fib1 + fib2;
                 }
-
-               if (test == true)
-               {
-                   return true;
-               }
-               else
-                   return false;
-
+                temp2 = fib2;
+                // this method can find binery of fibNum and ...
+                while (temp2 != 0)
+                {
+                    garb = temp2 % 2;
+                    if (garb == 1)
+                    {
+                        bineryOfNum += 1;
+                    }
+                    temp2 /= 2;
+                }
+                //check if is fibobin or not
+                if (fib2 + bineryOfNum == n)
+                {
+                    test = false;
+                    testIsFibobinOrNot = true;
+                }
+                if (fib2 + bineryOfNum > n)
+                {
+                    test = false;
+                    testIsFibobinOrNot = false;
+                }
+                // for another loop defin
+                bineryOfNum = 0;
 
             }
-
-
+            return testIsFibobinOrNot;
 
 
     }
 
-}
+
+
+
+  }
+
+

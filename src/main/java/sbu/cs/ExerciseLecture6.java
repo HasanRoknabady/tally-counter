@@ -92,10 +92,18 @@ public class ExerciseLecture6
     public List<List<String>> arrayToList(String[][] names)
     {
          //conver 2D string to 2D List function
-        List< List<String> > listOfNames = Arrays.stream(names).map(internalArray ->
-                Arrays.stream(internalArray).collect(Collectors.toList())).collect(Collectors.toList());
+        List<List<String>> nameList = new ArrayList<>();
 
-        return listOfNames;
+        for (int i = 0; i < names.length; i++)
+        {
+            ArrayList<String> wordListMaking = new ArrayList<>();
+            for (int j = 0; j < names[0].length; j++)
+            {
+                wordListMaking.add(names[i][j]);
+            }
+            nameList.add(wordListMaking);
+        }
+        return nameList;
     }
 
     /*
